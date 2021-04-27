@@ -24,8 +24,9 @@ var saveSearch = function(){
     localStorage.setItem("cities", JSON.stringify(cities));
 };
 var getCityCampsite = function(city){
-    var apiKey = ""
-    var apiURL = `""=${city}""=${apiKey}`
+    var apiKey = "UJYM85U5K477NDFKE52KDG6J"
+    
+    var apiURL = `"http://api.amp.active.com/camping/campgrounds?"=${city}"CO&siteType=2001&expwith=1&amenity=4005&pets=3010&"=${apiKey}`
 
     fetch(apiURL)
     .then(function(response){
