@@ -12,6 +12,7 @@ var formSumbitHandler = function(event){
     var city = cityInputEl.value.trim();
     if(city){
         getCityCampsite(city);
+        getCityWeather(city);
         cities.unshift({city});
         cityInputEl.value = "";
     } else{
@@ -24,9 +25,9 @@ var saveSearch = function(){
     localStorage.setItem("cities", JSON.stringify(cities));
 };
 var getCityCampsite = function(city){
-    var apiKey = "UJYM85U5K477NDFKE52KDG6J"
-    
-    var apiURL = `"http://api.amp.active.com/camping/campgrounds?"=${city}"CO&siteType=2001&expwith=1&amenity=4005&pets=3010&"=${apiKey}`
+    var apiKey = "aht3r7x5mj9ggeh433hdysk6"
+
+    var apiURL = `"http://api.amp.active.com/search?"${city}"&api_key="${apiKey}`
 
     fetch(apiURL)
     .then(function(response){
@@ -35,6 +36,15 @@ var getCityCampsite = function(city){
         });
     });
 };
+
+var displayCampsite = function(weather, campsite, searchCity){
+    
+    
+    campsiteContainerEl.textContent="";
+    weatherContainerEl.textContent= "";  
+    citySearchInputEl.textContent=searchCity;
+}
+ 
 // save search function
 
 // camp site search
