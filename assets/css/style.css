@@ -1,0 +1,68 @@
+:root {
+  --primary-color: rgb(6, 49, 105);
+  --second-color: #ffffff;
+  --third-color: #ff901f;
+  --fourth-color: #4d1605;
+}
+/*----Treid making font asset file. Linked fonts in HTML----*/
+/* @font-face {
+    font-family: "header-font";
+    font-style: normal;
+    src: url(../fonts/SpecialElite-Regular.ttf);
+  }
+  @font-face {
+    font-family: "general-font";
+    src: url(../fonts/AlegreyaSC-Regular.ttf);
+  }
+  
+  @font-face {
+    font-family: "highlight-font";
+    font-style: normal;
+    src: url(../fonts/Rancho-Regular.ttf);
+  } */
+
+body {
+  margin: 0;
+  background-color: var(--primary-color);
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  flex-direction: row;
+  background-color: var(--primary-color);
+  color: var(--second-color);
+  font-family: "Special Elite";
+  border: solid 2px black;
+}
+
+h1 {
+  padding-left: 10px;
+  float: left;
+  font-size: 5vh;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+aside {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  float: left;
+  font: "general-font";
+  color: #ffffff;
+}
+
+.search {
+  display: flex;
+  flex-direction: column;
+  border: black solid 2px;
+}
+
+ul {
+  list-style: none;
+}

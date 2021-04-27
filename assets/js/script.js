@@ -1,4 +1,9 @@
 // main variables
+var cityFormEl=document.querySelector("#city-search-form");
+var weatherContainerEl=document.querySelector("#current-weather-container");
+var citySearchInputEl = document.querySelector("#searched-city");
+var forecastTitle = document.querySelector("#forecast");
+var pastSearchButtonEl = document.querySelector("#past-search-buttons");
 
 // form submit handler
 
