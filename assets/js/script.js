@@ -7,6 +7,33 @@ var pastSearchButtonEl = document.querySelector("#past-search-buttons");
 
 // form submit handler
 
+var formSumbitHandler = function(event){
+    event.preventDefault();
+    var city = cityInputEl.value.trim();
+    if(city){
+        getCityCampsite(city);
+        cities.unshift({city});
+        cityInputEl.value = "";
+    } else{
+        alert("Please enter a City");
+    }
+    saveSearch();
+    pastSearch(city);
+}
+var saveSearch = function(){
+    localStorage.setItem("cities", JSON.stringify(cities));
+};
+var getCityCampsite = function(city){
+    var apiKey = ""
+    var apiURL = `""=${city}""=${apiKey}`
+
+    fetch(apiURL)
+    .then(function(response){
+        response.json().then(function(data){
+            displayCampsites(data, city);
+        });
+    });
+};
 // save search function
 
 // camp site search
