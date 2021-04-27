@@ -21,23 +21,28 @@ var formSumbitHandler = function(event){
     saveSearch();
     pastSearch(city);
 }
+
 var saveSearch = function(){
     localStorage.setItem("cities", JSON.stringify(cities));
+
+const settings = {
+	"async": true,
+	"crossDomain": true,
+	"url": "https://trailapi-trailapi.p.rapidapi.com/?q-activities_activity_type_name_eq=hiking&radius=25&q-country_cont=north%20america&q-city_cont=san%20jose&limit=25",
+	"method": "GET",
+	"headers": {
+		"x-rapidapi-key": "c7f1244285msh0470b614c78c4f8p12d629jsn617e69934242",
+		"x-rapidapi-host": "trailapi-trailapi.p.rapidapi.com"
+	}
+}
+
 };
-var getCityCampsite = function(city){
-    var apiKey = "aht3r7x5mj9ggeh433hdysk6"
 
-    var apiURL = `"http://api.amp.active.com/search?"${city}"&api_key="${apiKey}`
+$.ajax(settings).done(function (response) {
+	console.log(response);
+});
 
-    fetch(apiURL)
-    .then(function(response){
-        response.json().then(function(data){
-            displayCampsites(data, city);
-        });
-    });
-};
-
-var displayCampsite = function(weather, campsite, searchCity){
+var displayCampsite = function(_cityWeather, _cityCampsite, searchCity){
     
     
     campsiteContainerEl.textContent="";
