@@ -1,32 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Login </title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <script defer src="./assets/js/script.js"></script>
 </head>
-<h1 class = "headLogin"> User Login</h1>
+
 <body>
-    <div class = "container">
-        <label class="username">
-            <input type = "text" placeholder=" Enter Username" name = "username" required>
-        </label>
-            <input type = "text" placeholder="Enter Password" name="password" required>
-            <button type = "submit"> Login </button>
-            <label>
-                <input type = 'checkbox' checked="checked" name = "remember"> Remember </div>        
-            </label>
-          </div>
+  <main id="main-holder">
+    <h1 id="login-header">Login</h1>
+    
+    <div id="login-error-msg-holder">
+      <p id="login-error-msg">Invalid username <span id="error-msg-second-line">and/or password</span></p>
     </div>
     
+    <form id="login-form">
+      <input type="text" name="username" id="username-field" class="login-form-field" placeholder="Username">
+      <input type="password" name="password" id="password-field" class="login-form-field" placeholder="Password">
+      <input type="submit" value="Login" id="login-form-submit">
+      <button class = "button" type = "submit" value="Register" id = "register-form-submit" ><a href = "./register.html">Register</a></button>
+      <button class = "button" type = "submit" value = "Forgot Password" id = "forgot-password-form-submit" ><a href ="./forgotpassword.html">Forgot Password</a></button>
+    </form>
+  
+  </main>
+</body>
 
-  <div class = "container">
-      <button type ="button" class = "cancelLogin" > Cancel </button>
-      <span class = "password"> <a href= "./forgotpassword.html"> Forgot password</a> </span>
-  </div>
-  <div>
-      <span class = "userRegister"> <a href = "./register.html">  Register </a></span>
+</html>
+
+  
   </div>
 </body>
 </html>
