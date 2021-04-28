@@ -25,16 +25,17 @@ var formSumbitHandler = function(event){
 var saveSearch = function(){
     localStorage.setItem("cities", JSON.stringify(cities));
 
-const settings = {
-	"async": true,
-	"crossDomain": true,
-	"url": "https://trailapi-trailapi.p.rapidapi.com/?q-activities_activity_type_name_eq=hiking&radius=25&q-country_cont=north%20america&q-city_cont=san%20jose&limit=25",
-	"method": "GET",
-	"headers": {
-		"x-rapidapi-key": "c7f1244285msh0470b614c78c4f8p12d629jsn617e69934242",
-		"x-rapidapi-host": "trailapi-trailapi.p.rapidapi.com"
-	}
-}
+    var getCityCampsite = function(city){
+        var apiKey = "xRK7QJkZKuvEejlJZ7xTjEJ03Vls_YJgj5dW4Ah110WMRcrCypZe_2ONCtFeuUZT7yKB88Xb2rzMEIQO8TNJfeLt6U1i7TU3w935Eq_usonrRs1nthQCdVguDPKIYHYx";
+        var apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apiKey}`
+    
+        fetch(apiURL)
+        .then(function(response){
+            response.json().then(function(data){
+                displayWeather(data, city);
+            });
+        });
+    };
 
 };
 
@@ -69,3 +70,25 @@ var displayCampsite = function(_cityWeather, _cityCampsite, searchCity){
 // create date element
 
 // past searches
+
+var pastSearch = function(pastSearch){
+ 
+    // console.log(pastSearch)
+
+    pastSearchEl = document.createElement("button");
+    pastSearchEl.textContent = pastSearch;
+    pastSearchEl.classList = "d-flex w-100 btn-light border p-2";
+    pastSearchEl.setAttribute("data-city",pastSearch)
+    pastSearchEl.setAttribute("type", "submit");
+
+    pastSearchButtonEl.prepend(pastSearchEl);
+}
+
+
+var pastSearchHandler = function(event){
+    var city = event.target.getAttribute("data-city")
+    if(city){
+        getCityWeather(city);
+        getCityCampsite(city);
+    }
+}
