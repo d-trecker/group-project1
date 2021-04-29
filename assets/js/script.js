@@ -25,17 +25,17 @@ var formSumbitHandler = function(event){
 var saveSearch = function(){
     localStorage.setItem("cities", JSON.stringify(cities));
 
-    var getCityCampsite = function(city){
-        var apiKey = "xRK7QJkZKuvEejlJZ7xTjEJ03Vls_YJgj5dW4Ah110WMRcrCypZe_2ONCtFeuUZT7yKB88Xb2rzMEIQO8TNJfeLt6U1i7TU3w935Eq_usonrRs1nthQCdVguDPKIYHYx";
-        var apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apiKey}`
-    
-        fetch(apiURL)
-        .then(function(response){
-            response.json().then(function(data){
-                displayWeather(data, city);
-            });
-        });
-    };
+    const response = await fetch("https://cryptic-castle-96421.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=camping&location=california", {
+    method: 'GET',
+    headers: {
+        "accept": "application/json",
+        "x-requested-with": "xmlhttprequest",
+        "Access-Control-Allow-Origin":"*",
+        Authorization: `Bearer YOUR_API_KEY_HERE`,
+        "Content-type": "application/json",
+    },
+  }).then(response => response.json())
+  .then(response => console.log(response));
 
 };
 
