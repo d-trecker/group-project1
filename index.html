@@ -28,20 +28,28 @@
       <!--End Move to body-->
     </header>
     <aside class="flex-column justify-space-between">
-      <div class="search">
-        <div class="card">
-          <div class="header-img"></div>
-          <h3 class="card-header text-uppercase">Search For Parks Near Me</h3>
-          <form id="user-form" class="card-body">
-            <label class="form-label" for=""></label>
-            <input
-              name=""
-              id=""
-              type="text"
-              autofocus="true"
-              class="form-input"
-            />
-            <button type="submit" class="btn">Search</button>
+      <main class="container-fluid">
+        <div class = "row">
+            <div class="col-12 col-md-3 p-2 search-column">
+                <form class = "border p-2" id = "city-search-form">
+                    <h4>Search for a City</h2>
+                    <input id="city" type = "text" autofocus = "true" class = "form-input"/>
+                    <button class = "btn btn-primary" type = "submit">Search</button>
+                </form>
+                <div class = "past-search border" id = "past-search-buttons"></div>
+            </div>
+            <div class="col-12 col-md-9">
+                <div class = "row border selected-city" id = "current-campsite">
+                    <div class = "col-12">
+                        <h2 id="searched-city"></h2>
+                        <div id = "current-campsite-container" class = "list-group"></div>
+                    </div>  
+                </div>
+                <div class = "row border" id = "previous-searches">
+                        <div class = "d-flex" id = "current-campsite"></div>
+                </div>  
+            </div>
+        </div>
             <ul>
               Check
               <li>Parks Availibility and Time Slots</li>
