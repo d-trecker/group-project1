@@ -25,7 +25,7 @@ var formSumbitHandler = function (event) {
 };
 
 var saveSearch = function (city) {
-  debugger;
+  // debugger;
   // localStorage.setItem("cities", JSON.stringify(cities));
 
   fetch("https://api.openbrewerydb.org/breweries?by_city=" + city)
@@ -59,30 +59,32 @@ function weatherDisplay(data) {
 //Brewery Search
 
 function displayBrews(data) {
-  console.log(data);
-  const { brewName } = data[0].name;
-  const { street } = data[0].street;
-  const { city } = data[0].city;
-  const { phone } = data[0].phone;
-  // var { website } = data[0].website_url;
+  for (let i = 0; i < data.length; i++) {
+    console.log(data);
+    var brewName = data[i].name;
+    var street = data[i].street;
+    var city = data[i].city;
+    var phone = data[i].phone;
+    var website = data[i].website_url;
 
-  console.log(brewName, street, city, phone);
+    console.log(brewName, street, city, phone, website);
 
-  brewContainer = $("#brew-container");
+    brewContainer = $("#brew-container");
 
-  var parentDiv = $('<div class="brew">');
-  var brewNameEl = $('<h3 class="b-name"></h3>');
-  var brewStreetEl = $('<p class= "b-street"></p>');
-  var brewCityEl = $('<p class="b-city"></p>');
-  var brewPhoneEl = $('<p class="b-phone"></p>');
-  // var brewWebsiteEl = $('<p class="b-website"></p>');
+    var parentDiv = $('<div class="brew">');
+    var brewNameEl = $('<h3 class="b-name"></h3>').text(brewName);
+    var brewStreetEl = $('<p class= "b-street"></p>').text(street);
+    var brewCityEl = $('<p class="b-city"></p>').text(city);
+    var brewPhoneEl = $('<p class="b-phone"></p>').text(phone);
+    var brewWebsiteEl = $('<p class="b-website"></p>').text(website);
 
-  parentDiv.append(brewNameEl);
-  brewNameEl.append(brewStreetEl);
-  brewStreetEl.append(brewCityEl);
-  brewCityEl.append(brewPhoneEl);
-  // brewPhoneEl.append(brewWebsiteEl);
-  brewContainer.append(parentDiv);
+    parentDiv.append(brewNameEl);
+    brewNameEl.append(brewStreetEl);
+    brewStreetEl.append(brewCityEl);
+    brewCityEl.append(brewPhoneEl);
+    brewPhoneEl.append(brewWebsiteEl);
+    brewContainer.append(parentDiv);
+  }
 }
 
 // ---- Past Searches Function----
@@ -112,6 +114,11 @@ $(searchButton).on("click", function (event) {
   saveSearch(searchResult);
   console.log(searchResult);
 });
+
+// event.preventDefault();
+// var searchResult = $("#city").val();
+// saveSearch(searchResult);
+// console.log(searchResult);
 
 // save search function
 
