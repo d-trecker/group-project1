@@ -6,6 +6,7 @@ var forecastTitle = document.querySelector("#forecast");
 var pastSearchButtonEl = document.querySelector("#past-search-buttons");
 var searchButton = document.querySelector("#search-btn");
 var displayWeather = document.getElementById("#display-weather");
+brewContainer = $("#brew-container");
 const apiKey = "844421298d794574c100e3409cee0499";
 // form submit handler
 
@@ -25,7 +26,6 @@ var formSumbitHandler = function (event) {
 };
 
 var saveSearch = function (city) {
-  // debugger;
   // localStorage.setItem("cities", JSON.stringify(cities));
 
   fetch("https://api.openbrewerydb.org/breweries?by_city=" + city)
@@ -59,6 +59,11 @@ function weatherDisplay(data) {
 //Brewery Search
 
 function displayBrews(data) {
+  // debugger;
+  //brewContainer.reset();
+  //brewContainer.innerHTML = "";
+  // brewContainer = $("#brew-container");
+
   for (let i = 0; i < data.length; i++) {
     console.log(data);
     var brewName = data[i].name;
@@ -68,8 +73,6 @@ function displayBrews(data) {
     var website = data[i].website_url;
 
     console.log(brewName, street, city, phone, website);
-
-    brewContainer = $("#brew-container");
 
     var parentDiv = $('<div class="brew">');
     var brewNameEl = $('<h3 class="b-name"></h3>').text(brewName);
@@ -113,6 +116,7 @@ $(searchButton).on("click", function (event) {
   var searchResult = $("#city").val();
   saveSearch(searchResult);
   console.log(searchResult);
+  // brewContainer.reset();
 });
 
 // event.preventDefault();
