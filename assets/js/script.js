@@ -5,6 +5,8 @@ var citySearchInputEl = document.querySelector("#searched-city");
 var forecastTitle = document.querySelector("#forecast");
 var pastSearchButtonEl = document.querySelector("#past-search-buttons");
 var searchButton = document.querySelector("#search-btn");
+var displayWeather = document.getElementById("#display-weather");
+const apiKey = "844421298d794574c100e3409cee0499";
 // form submit handler
 
 var formSumbitHandler = function (event) {
@@ -23,47 +25,63 @@ var formSumbitHandler = function (event) {
 };
 
 var saveSearch = function (city) {
+  debugger;
   // localStorage.setItem("cities", JSON.stringify(cities));
 
-  fetch(
-    "https://cryptic-castle-96421.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=camping&location=" +
-      city,
-    {
-      method: "GET",
-      headers: {
-        accept: "application/json",
-        "x-requested-with": "xmlhttprequest",
-        "Access-Control-Allow-Origin": "*",
-        Authorization: `Bearer xRK7QJkZKuvEejlJZ7xTjEJ03Vls_YJgj5dW4Ah110WMRcrCypZe_2ONCtFeuUZT7yKB88Xb2rzMEIQO8TNJfeLt6U1i7TU3w935Eq_usonrRs1nthQCdVguDPKIYHYx`,
-        "Content-type": "application/json",
-      },
-    }
-  )
+  fetch("https://api.openbrewerydb.org/breweries?by_city=" + city)
     .then((response) => response.json())
     .then((response) => console.log(response));
-  displayResults();
+
+  fetch(
+    "https://api.openweathermap.org/data/2.5/weather?q=" +
+      city +
+      "&units=imperial&appid=" +
+      apiKey
+  )
+    .then((response) => response.json())
+    .then((data) => displayWeather(data));
 };
 
-var get5Day = function (city) {
-  var apiKey = "844421298d794574c100e3409cee0499";
-  var apiURL = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=imperial&appid=${apiKey}`;
+function displayWeather(data) {
+  const { name } = data;
+  const { temp } = data.main;
+  const { icon } = data.weather[0];
+  console.log(name, temp, icon);
+  //Gives Element text.
+  document.querySelector(".city").innerText = name;
+  document.querySelector(".temp").innerText = temp;
+  document.querySelector(".icon").src =
+    "http://openweathermap.org/img/wn/" + icon + ".png";
+  // weatherDisplay.removeClass("hide");
+}
 
-  fetch(apiURL).then(function (response) {
-    response.json().then(function (data) {
-      display5Day(data);
-    });
-  });
-};
+//Brewery Search
 
-// $.ajax(settings).done(function (response) {
-//   console.log(response);
-// });
+function displayBrews(data) {
+  const { brewName } = data.name;
+  const { street } = data.street;
+  const { city } = data.city;
+  const { phone } = data.phone;
+  const { website } = data.website_url;
 
-var displayCampsite = function (_cityWeather, _cityCampsite, searchCity) {
-  campsiteContainerEl.textContent = "";
-  weatherContainerEl.textContent = "";
-  citySearchInputEl.textContent = searchCity;
-};
+  console.log(brewName, street, city, phone, website);
+
+  brewContainer = $("#brew-container");
+
+  var parentDiv = $('<div class="brew">');
+  var brewNameEl = $('<h3 class="b-name"></h3>');
+  var brewStreetEl = $('<p class= "b-street"></p>');
+  var brewCityEl = $('<p class="b-city"></p>');
+  var brewPhoneEl = $('<p class="b-phone"></p>');
+  var brewWebsiteEl = $('<p class="b-website"></p>');
+
+  parentDiv.append(brewNameEl);
+  brewNameEl.append(brewStreetEl);
+  brewStreetEl.append(brewCityEl);
+  brewCityEl.append(brewPhoneEl);
+  brewPhoneEl.append(brewWebsiteEl);
+  brewContainer.append(parentDiv);
+}
 
 // save search function
 
@@ -118,3 +136,9 @@ $(searchButton).on("click", function (event) {
   saveSearch(searchResult);
   console.log(searchResult);
 });
+
+// var displayCampsite = function (_cityWeather, _cityCampsite, searchCity) {
+//   campsiteContainerEl.textContent = "";
+//   weatherContainerEl.textContent = "";
+//   citySearchInputEl.textContent = searchCity;
+// };
