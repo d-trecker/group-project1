@@ -30,7 +30,7 @@ var saveSearch = function (city) {
 
   fetch("https://api.openbrewerydb.org/breweries?by_city=" + city)
     .then((response) => response.json())
-    .then((response) => console.log(response));
+    .then((data) => displayBrews(data));
 
   fetch(
     "https://api.openweathermap.org/data/2.5/weather?q=" +
@@ -39,10 +39,11 @@ var saveSearch = function (city) {
       apiKey
   )
     .then((response) => response.json())
-    .then((data) => displayWeather(data));
+    .then((data) => weatherDisplay(data));
 };
 
-function displayWeather(data) {
+function weatherDisplay(data) {
+  console.log(data);
   const { name } = data;
   const { temp } = data.main;
   const { icon } = data.weather[0];
@@ -58,13 +59,14 @@ function displayWeather(data) {
 //Brewery Search
 
 function displayBrews(data) {
-  const { brewName } = data.name;
-  const { street } = data.street;
-  const { city } = data.city;
-  const { phone } = data.phone;
-  const { website } = data.website_url;
+  console.log(data);
+  const { brewName } = data[0].name;
+  const { street } = data[0].street;
+  const { city } = data[0].city;
+  const { phone } = data[0].phone;
+  // var { website } = data[0].website_url;
 
-  console.log(brewName, street, city, phone, website);
+  console.log(brewName, street, city, phone);
 
   brewContainer = $("#brew-container");
 
@@ -73,35 +75,17 @@ function displayBrews(data) {
   var brewStreetEl = $('<p class= "b-street"></p>');
   var brewCityEl = $('<p class="b-city"></p>');
   var brewPhoneEl = $('<p class="b-phone"></p>');
-  var brewWebsiteEl = $('<p class="b-website"></p>');
+  // var brewWebsiteEl = $('<p class="b-website"></p>');
 
   parentDiv.append(brewNameEl);
   brewNameEl.append(brewStreetEl);
   brewStreetEl.append(brewCityEl);
   brewCityEl.append(brewPhoneEl);
-  brewPhoneEl.append(brewWebsiteEl);
+  // brewPhoneEl.append(brewWebsiteEl);
   brewContainer.append(parentDiv);
 }
 
-// save search function
-
-// camp site search
-
-// weather display
-//Downloaded from https://www.codeseek.co/Alaa--/local-weather-app-using-flexbox-gaMOWQ */
-
-// image elements
-
-// span to hold previous camp site elements
-
-// span to hold weather elements
-
-// containers
-
-// create date element
-
-// past searches
-
+// ---- Past Searches Function----
 var pastSearch = function (pastSearch) {
   // console.log(pastSearch)
 
@@ -122,14 +106,6 @@ var pastSearchHandler = function (event) {
   }
 };
 
-// function displayResults(data) {
-//   console.log("resultsDisplayed");
-//   const { campName } = data.name;
-//   const { campReviews } = data.rating;
-//   const { campPrice } = data.price;
-//   const { campUrl } = data.url;
-// }
-
 $(searchButton).on("click", function (event) {
   event.preventDefault();
   var searchResult = $("#city").val();
@@ -137,8 +113,19 @@ $(searchButton).on("click", function (event) {
   console.log(searchResult);
 });
 
-// var displayCampsite = function (_cityWeather, _cityCampsite, searchCity) {
-//   campsiteContainerEl.textContent = "";
-//   weatherContainerEl.textContent = "";
-//   citySearchInputEl.textContent = searchCity;
-// };
+// save search function
+
+// camp site search
+
+// weather display
+//Downloaded from https://www.codeseek.co/Alaa--/local-weather-app-using-flexbox-gaMOWQ */
+
+// image elements
+
+// span to hold previous camp site elements
+
+// span to hold weather elements
+
+// containers
+
+// create date element
