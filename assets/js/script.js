@@ -117,6 +117,12 @@ $(searchButton).on("click", function (event) {
   var searchResult = $("#city").val();
   saveSearch(searchResult);
   console.log(searchResult);
+  window.localStorage.setItem("cityName", JSON.stringify(searchResult));
+  var cityName = JSON.parse(window.localStorage.getItem("cityName"));
+  console.log(cityName);
+  var cityContainer = $("#past-search-buttons");
+  var cityEl = $('<button class="btn" id = "histBtn" ></button>').text(cityName);
+  cityContainer.append(cityEl);
   // brewContainer.reset();
 });
 
