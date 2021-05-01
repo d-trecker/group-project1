@@ -31,7 +31,7 @@ header {
   justify-content: space-between;
   flex-wrap: wrap;
   flex-direction: row;
-  background-image:url('../images/intents_header.png'); 
+  background-image: url("../images/intents_header.png");
   color: var(--second-color);
   font-family: "Special Elite";
   border: solid 2px black;
@@ -73,7 +73,7 @@ ul {
   flex-direction: row;
   -webkit-align-items: center;
   align-items: center;
-   
+
   flex-wrap: wrap;
   min-width: 320px;
   max-width: 1220px;
