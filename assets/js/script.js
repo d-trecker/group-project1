@@ -31,7 +31,7 @@ var saveSearch = function(){
         "accept": "application/json",
         "x-requested-with": "xmlhttprequest",
         "Access-Control-Allow-Origin":"*",
-        Authorization: `Bearer YOUR_API_KEY_HERE`,
+        Authorization: `Bearer xRK7QJkZKuvEejlJZ7xTjEJ03Vls_YJgj5dW4Ah110WMRcrCypZe_2ONCtFeuUZT7yKB88Xb2rzMEIQO8TNJfeLt6U1i7TU3w935Eq_usonrRs1nthQCdVguDPKIYHYx`,
         "Content-type": "application/json",
     },
   }).then(response => response.json())
