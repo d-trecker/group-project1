@@ -45,6 +45,32 @@ html {
     background-color: #e58f8f;
     opacity: 0;
   }
+
+  #register-error-msg-holder {
+    width: 23%;
+    text-align: center;
+    margin: 0;
+    padding: 5px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #8a0000;
+    border: 1px solid #8a0000;
+    background-color: #e58f8f;
+    opacity: 0;
+  }
+  
+  #register-error-msg {
+    width: 23%;
+    text-align: center;
+    margin: 0;
+    padding: 5px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #8a0000;
+    border: 1px solid #8a0000;
+    background-color: #e58f8f;
+    opacity: 0;
+  }
   
   #error-msg-second-line {
     display: block;
@@ -109,5 +135,84 @@ button {
     white-space: normal;
     top: 1px;
 
+}
+
+.tabs {
+  display: table-cell;
+  width: 30%;
+  background-color: blanchedalmond;
+}
+
+.tabs {
+  display: table-cell;
+  width: 30%;
+  background-color: rgba(11, 177, 224, 0.82);
+  padding: 10px;
+  float: left;
+  text-align: center;
+  vertical-align: middle;
+  border: 2px solid #ffffff;
+  border-bottom: 0px;
+  position: relative;
+  font-size: 1.3em;
+  color: #ffffff;
+}
+
+.tabs:hover, p{
+  cursor: pointer;
+}
+
+#leftTab  {
+  background-color: rgb(12, 132, 189);
+}
+#cont {
+  width: 100%;
+  height: 300px;
+  background-color: rgba(11, 177, 224, 0.82);
+  border: 2px solid #ffffff;
+}
+
+input{
+  display: block;
+  width: 250px;
+  margin: 10px 13px;
+  padding: 10px;
+  font-size: 1.3em;
+  color: rgba(11, 177, 224, 0.82);
+  outline: 2px solid #ffffff;
+}
+
+p {
+  padding: 10px 15px;
+  font-size: 1.3em;
+  color: #ffffff
+}
+
+.comm {
+  position: absolute;
+  visibility: hidden;
+}
+
+#login {
+  visibility: visible;
+}
+
+h4 {
+  display: block;
+  margin-top: 25px;
+  text-align: center;
+}
+
+#register {
+  bottom: 200px;
+}
+
+#forgot {
+  bottom: 200px;
+
+}
+
+#fe {
+  margin: 10px 15px;
 }
 

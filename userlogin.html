@@ -11,26 +11,61 @@
 
 <body>
   <main id="main-holder">
-    <h1 id="login-header">Login</h1>
+    <div id ="container">
+      <div id = "tabs">
+          <p id = "leftTab" class="tabs" onclick="loginTabFun()">Log in</p>
+          <p id = "rightTab" class = "tabs" onclick="regTabFun()">Register</p>
+      </div>
+    
     
     <div id="login-error-msg-holder">
       <p id="login-error-msg">Invalid username <span id="error-msg-second-line">and/or password</span></p>
     </div>
-    
-    <form id="login-form">
-      <input type="text" name="username" id="username-field" class="login-form-field" placeholder="Username">
-      <input type="password" name="password" id="password-field" class="login-form-field" placeholder="Password">
-      <input type="submit" value="Login" id="login-form-submit">
-      <button class = "button" type = "submit" value="Register" id = "register-form-submit" ><a href = "./register.html">Register</a></button>
-      <button class = "button" type = "submit" value = "Forgot Password" id = "forgot-password-form-submit" ><a href ="./forgotpassword.html">Forgot Password</a></button>
-    </form>
-  
-  </main>
-</body>
 
-</html>
+    <div id = "cont">
+      <div id = "login" class = "comm">
+        <h4> Sign in</h4>
 
-  
-  </div>
-</body>
-</html>
+        <form id ="login-form">
+          <input type="text" name="username" id="username-field" class="login-form-field" placeholder="Username">
+          <input type="password" name="password" id="password-field" class="login-form-field" placeholder="Password">
+          <input type="submit" value="Login" id="login-form-submit">
+
+        </form>
+
+      
+
+        <p onclick="forTabFun()">Forget Password</p>
+      </div>
+
+      <div id = "register-error-msg-holder">
+        <p id = "register-error-msg"> Invalid username/password <span id = "error-msg-second-line"> or username is taken </span></p> 
+      </div>
+
+      <div id ="register" class="comm">
+        <h4> Register </h4>
+
+        <input type = "text" placeholder="Enter Email" name="email" id = register-email-form>
+        <input type = "password" placeholder="Enter Password" class = "login-form-field" name="password" id = "register-password-form">
+        <input type = "password" placeholder="Confirm New Password" class="login-form-field" name = "confirm" id = "register-confirm-password-form">
+        <input type = "submit" onclick="register()" value="submit">
+        
+
+
+      </div>
+      <div id = "forgot-error-msg-holder">
+        <p id = "forgot-error-msg"> Invalid Password</p>
+      </div>
+
+      <div id="forgot" class="comm">
+        <h3>Forgot Password</h3>
+        <div>
+            <input id="fe" type="email" placeholder="Email" required/>
+            <input type="submit" onclick="forgot()" value="Submit"/>
+        </div>
+        </div>
+
+        
+    </div>
+
+
