@@ -1,56 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./Assets/css/style.css" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap"
-      rel="stylesheet"
-    />
-    <title>I-T-C</title>
-  </head>
-  <body>
-    <header class="header" id="page-header">
-      <!--Move to body-->
-      <h1>In-Tents Camping</h1>
-      <div class="container"><a href="./userlogin.html">
-        User Login
-        </a>
-        <div class="row">
-          <div class="weather"></div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./Assets/css/style.css" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet" />
+  <title>I-T-C</title>
+</head>
+
+<body>
+      <header class="header" id="page-header">
+        <!--Move to body-->
+        <h1>In-Tents Camping</h1>
+        <div class="container"><a href="./userlogin.html">
+            User Login
+          </a>
+          <div class="row">
+            <div class="weather"></div>
+          </div>
         </div>
-      </div>
-      <!--End Move to body-->
-    </header>
-    <aside class="flex-column justify-space-between">
-      <div class="search">
-        <div class="card">
-          <h3 class="card-header text-uppercase">Search For Parks Near Me</h3>
-          <form id="user-form" class="card-body">
-            <label class="form-label" for=""></label>
-            <input
-              name=""
-              id=""
-              type="text"
-              autofocus="true"
-              class="form-input"
-            />
-            <button type="submit" class="btn">Search</button>
-            <ul>
-              Check
-              <li>Parks Availibility and Time Slots</li>
-              <li>Set Reservations</li>
-              <li>See Reviews</li>
-              <li>Write Reviews</li>
-              <li>See Ratings</li>
-              <li>Display Prices</li>
-            </ul>
-          </form>
+        <!--End Move to body-->
+      </header>
+      <aside class="flex-column justify-space-between">
+        <main class="container-fluid">
+          <div class="row">
+            <div class="col-12 col-md-3 p-2 search-column">
+              <form class="border p-2" id="city-search-form">
+                <h4>Search for a City</h2>
+                  <input id="city" type="text" autofocus="true" class="form-input" />
+                  <button class="btn btn-primary" type="submit" id = "search-btn">Search</button>
+              </form>
+              <div class="past-search border" id="past-search-buttons"></div>
+            </div>
+            <div class="col-12 col-md-9">
+              <div class="row border selected-city" id="current-campsite">
+                <div class="col-12">
+                  <h2 id="searched-city"></h2>
+                  <div id="current-campsite-container" class="list-group"></div>
+                </div>
+              </div>
+              <div class="row border" id="previous-searches">
+                <div class="d-flex" id="current-campsite"></div>
+              </div>
+            </div>
+          </div>
+          <div id = "display-weather">
+            <h2 class = "city"></h2>
+            <p class = "temp"></p>
+            <img src="" class = "icon" />
+          </div>
+      </aside>
+
+      <div class="flex-container" id = "brew-container">
+        <!-- <div class="flex-item"><img src="http://placehold.it/100x100">
+          <span>PARK AVAILABILITY & TIME SLOTS</span>
         </div>
+        <div class="flex-item"><img src="http://placehold.it/100x100">
+          <span>RESERVATIONS</span>
+        </div>
+        <div class="flex-item"><img src="http://placehold.it/100x100">
+          <span>REVIEWS</span>
+        </div>
+        <div class="flex-item"><img src="http://placehold.it/100x100">
+          <span>LEAVE REVIEWS</span>
+        </div>
+        <div class="flex-item"><img src="http://placehold.it/100x100">
+          <span>SEE RATINGS</span>
+        </div>
+        <div class="flex-item"><img src="http://placehold.it/100x100">
+          <span>CAMPSITE RESERVATION PRICES</span>
+        </div> -->
       </div>
-    </aside>
-  </body>
+
+</body>
 </html>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="./Assets/js/script.js"></script>
