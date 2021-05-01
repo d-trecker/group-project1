@@ -113,6 +113,7 @@ var pastSearchHandler = function (event) {
 
 $(searchButton).on("click", function (event) {
   event.preventDefault();
+  $(".brew").empty();
   var searchResult = $("#city").val();
   saveSearch(searchResult);
   console.log(searchResult);
