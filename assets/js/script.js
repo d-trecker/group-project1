@@ -8,10 +8,12 @@ var searchButton = document.querySelector("#search-btn");
 var displayWeather = document.getElementById("#display-weather");
 brewContainer = $("#brew-container");
 const apiKey = "844421298d794574c100e3409cee0499";
-// form submit handler
 
+//  Bottle Cap Sound FX
 var sfx = new Audio();
 sfx.src = "assets/fx/bottle_cap.mp3";
+
+// form submit handler
 
 var formSumbitHandler = function (event) {
   event.preventDefault();
@@ -45,7 +47,7 @@ var saveSearch = function (city) {
 };
 
 function weatherDisplay(data) {
-  console.log(data);
+  // console.log(data);
   const { name } = data;
   const { temp } = data.main;
   const { icon } = data.weather[0];
@@ -67,7 +69,7 @@ function displayBrews(data) {
   // brewContainer = $("#brew-container");
 
   for (let i = 0; i < data.length; i++) {
-    console.log(data);
+    // console.log(data);
     var brewName = data[i].name;
     var street = data[i].street;
     var city = data[i].city;
@@ -80,7 +82,7 @@ function displayBrews(data) {
     var brewNameEl = $('<h3 class="b-name"></h3>').text(brewName);
     var brewStreetEl = $('<p class= "b-street"></p>').text(street);
     var brewCityEl = $('<p class="b-city"></p>').text(city);
-    var brewPhoneEl = $('<p class="b-phone"></p>').text(phone);
+    var brewPhoneEl = $('<a href="tel:b-phone"></a>').text(phone);
     var brewWebsiteEl = $('<a href="' + website + '" class="button b-website" target="_blank" id="site"></a>').text(website);
 
     parentDiv.append(brewNameEl);
@@ -127,32 +129,3 @@ $(searchButton).on("click", function (event) {
   }
   // brewContainer.reset();
 });
-
-// $("#site").on("click", function (event) {
-//   console.log("website has been clicked!");
-
-// }
-
-// $('p.button').click(function(){$(this).children('a').click()});
-
-// event.preventDefault();
-// var searchResult = $("#city").val();
-// saveSearch(searchResult);
-// console.log(searchResult);
-
-// save search function
-
-// camp site search
-
-// weather display
-//Downloaded from https://www.codeseek.co/Alaa--/local-weather-app-using-flexbox-gaMOWQ */
-
-// image elements
-
-// span to hold previous camp site elements
-
-// span to hold weather elements
-
-// containers
-
-// create date element
