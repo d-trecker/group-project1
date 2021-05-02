@@ -71,7 +71,7 @@ h1 {
   font-size: 7vw;
   color: var(--second-color);
   text-shadow: 0 0 10px rgba(0, 0, 0, 1);
-  padding-left: 10px;
+  padding: 10px;
 }
 
 h2 {
@@ -101,8 +101,10 @@ h2 {
 
 .brew {
   box-shadow: 0 0 10px rgba(0, 0, 0, 1);
-  flex-direction: column;
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   flex-wrap: wrap;
   height: 150px;
   width: 100%;
@@ -110,7 +112,6 @@ h2 {
   padding: 2px;
   color: var(--fourth-color);
   justify-content: center;
-  align-items: center;
   background-color: var(--third-color);
   border-radius: 5px;
 }
@@ -119,13 +120,17 @@ h2 {
   color: blue;
   font-size: 90%;
 }
+
+.b-website:hover {
+  cursor: pointer;
+}
 .temp {
   font-size: 40px;
 }
 
 .b-name {
   color: rgb(0, 0, 0);
-  font-weight: 400;
+  font-weight: 500;
 }
 .city {
   font-size: 250%;
@@ -211,8 +216,16 @@ span {
   display: none;
 }
 
+.sticky-footer {
+  min-height: 100vh;
+
+}
+
 footer {
-  margin-top: 15px;
+  position: relative;
+  margin-top: -50px;
+  height: 50px;
+  width: 100%;
   align-items: center;
   display: flex;
   justify-content: space-between;
@@ -221,8 +234,6 @@ footer {
   background-image: url("../images/brewery-header.jpg");
   background-size: cover;
   border: solid 2px black;
-  height: 12vh;
-  width: 100vw;
   box-shadow: 0 0 10px rgba(0, 0, 0, 1);
 }
 

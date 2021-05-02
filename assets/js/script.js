@@ -27,16 +27,15 @@ var formSumbitHandler = function (event) {
 
 var saveSearch = function (city) {
   // localStorage.setItem("cities", JSON.stringify(cities));
-
   fetch("https://api.openbrewerydb.org/breweries?by_city=" + city)
     .then((response) => response.json())
     .then((data) => displayBrews(data));
 
   fetch(
     "https://api.openweathermap.org/data/2.5/weather?q=" +
-      city +
-      "&units=imperial&appid=" +
-      apiKey
+    city +
+    "&units=imperial&appid=" +
+    apiKey
   )
     .then((response) => response.json())
     .then((data) => weatherDisplay(data));
@@ -79,13 +78,13 @@ function displayBrews(data) {
     var brewStreetEl = $('<p class= "b-street"></p>').text(street);
     var brewCityEl = $('<p class="b-city"></p>').text(city);
     var brewPhoneEl = $('<p class="b-phone"></p>').text(phone);
-    var brewWebsiteEl = $('<p class="b-website"></p>').text(website);
+    var brewWebsiteEl = $('<a href"'+ website +'" class="button b-website" target="_blank"></a>').text(website);
 
     parentDiv.append(brewNameEl);
-    brewNameEl.append(brewStreetEl);
-    brewStreetEl.append(brewCityEl);
-    brewCityEl.append(brewPhoneEl);
-    brewPhoneEl.append(brewWebsiteEl);
+    parentDiv.append(brewStreetEl);
+    parentDiv.append(brewCityEl);
+    parentDiv.append(brewPhoneEl);
+    parentDiv.append(brewWebsiteEl);
     brewContainer.append(parentDiv);
   }
 }
@@ -113,15 +112,19 @@ var pastSearchHandler = function (event) {
 
 $(searchButton).on("click", function (event) {
   event.preventDefault();
-  $(".brew").remove();
   var searchResult = $("#city").val();
-  saveSearch(searchResult);
-  console.log(searchResult);
-  $("#display-weather").removeClass("hide");
-  // clears the search bar
-  document.getElementById("city").value = "";
+  if (searchResult != "") {
+    $(".brew").remove();
+    saveSearch(searchResult);
+    console.log(searchResult);
+    $("#display-weather").removeClass("hide");
+    // clears the search bar
+    document.getElementById("city").value = "";
+  }
   // brewContainer.reset();
 });
+
+$('p.button').click(function(){$(this).children('a').click()});
 
 // event.preventDefault();
 // var searchResult = $("#city").val();
