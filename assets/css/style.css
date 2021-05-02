@@ -1,9 +1,169 @@
+* {
+  font-family: 'Open Sans', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+
 :root {
-  --primary-color: rgb(6, 49, 105);
+  --primary-color: rgb(70, 75, 82);
   --second-color: #ffffff;
   --third-color: #ff901f;
   --fourth-color: #4d1605;
 }
+
+
+.btn {
+  transition-duration: 0.4s;
+  padding: 10px;
+  border-radius: 50%;
+  color: var(--second-color);
+  background-color: rgba(63, 163, 72, 0.5);
+  font-size: 30px;
+}
+
+.btn:hover {
+  outline: none;
+  box-shadow: 0 0 10px rgba(0, 10, 0, 1);
+  background-color: rgb(47, 138, 55);
+}
+
+input[type=text] {
+  box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+  outline: none;
+  margin-right: 30px;
+  width: 200px;
+  height: 35px;
+  border: none;
+  border-radius: 3px;
+  background-color: rgba(225, 225, 225, 0.5);
+}
+input:focus {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 1.5);
+  background-color: rgba(225, 225, 225, 1);
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  background-color: var(--primary-color);
+}
+
+header {
+  padding-top: 20px;
+  align-items: center;
+  display: table;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  flex-direction: row;
+  background-image: url("../images/brewery-header.jpg");
+  background-size: cover;
+  border: solid 2px black;
+  height: 15vh;
+  width: 100vw;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+}
+
+span {
+  font-size: .8em;
+}
+
+h1 {
+  display: table-row;
+  text-decoration: underline;
+  text-align: center;
+  font-size: 7vw;
+  color: var(--second-color);
+  text-shadow: 0 0 10px rgba(0, 0, 0, 1);
+  padding: 10px;
+}
+
+h2 {
+  color: black;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.search {
+  display: flex;
+  flex-direction: column;
+  border: black solid 2px;
+}
+
+.search-container {
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  padding: 10px;
+  flex-wrap: wrap;
+}
+
+.brew {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  height: 150px;
+  width: 100%;
+  margin: 10px;
+  padding: 2px;
+  color: var(--fourth-color);
+  justify-content: center;
+  background-color: var(--third-color);
+  border-radius: 5px;
+}
+
+.b-website {
+  color: blue;
+  font-size: 90%;
+}
+
+.b-website:hover {
+  cursor: pointer;
+}
+.temp {
+  font-size: 40px;
+}
+
+.b-name {
+  align-items: center;
+  justify-content: center;
+  color: rgb(0, 0, 0);
+  font-weight: 500;
+}
+.city {
+  font-size: 250%;
+  text-decoration: underline;
+}
+
+.icon {
+  width: auto;
+  height: 20vh;
+}
+
+.weather-display {
+  height: 150px;
+  width: 100%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+  color: rgb(0, 0, 0);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 7px;
+  margin-top: 20px;
+  border-radius: 5px;
+  background-color: var(--third-color);
+}
+
 /*----Treid making font asset file. Linked fonts in HTML----*/
 /* @font-face {
     font-family: "header-font";
@@ -21,63 +181,33 @@
     src: url(../fonts/Rancho-Regular.ttf);
   } */
 
-body {
-  margin: 0;
-  background-color: var(--primary-color);
-}
-
-header {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  flex-direction: row;
-  background-image: url("../images/intents_header.png");
-  color: var(--second-color);
-  font-family: "Special Elite";
-  border: solid 2px black;
-}
-
-h1 {
-  padding-left: 10px;
-  float: left;
-  font-size: 5vh;
-}
-
-.container {
-  display: flex;
-  flex-direction: column;
-}
-
 aside {
+  margin: 10px;
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  float: left;
-  font: "general-font";
-  color: #ffffff;
+  flex-wrap: wrap;
+  justify-content: center;
+  color: var(--second-color);
 }
 
-.search {
-  display: flex;
-  flex-direction: column;
-  border: black solid 2px;
-}
+
 
 ul {
   list-style: none;
 }
-.flex-container {
-  display: -webkit-flex;
+.brew-container{
+  margin-top: 5px;
+  margin-bottom: 75px;
   display: flex;
-  -webkit-flex-direction: row;
   flex-direction: row;
-  -webkit-align-items: center;
+  justify-content: flex-start;
   align-items: center;
-
+  align-items: center;
   flex-wrap: wrap;
-  min-width: 320px;
-  max-width: 1220px;
+  position: relative;
+  min-width: 20%;
+  max-width: 100%;
 }
+
 .flex-item {
   height: 150px;
   width: 400px;
@@ -90,19 +220,43 @@ span {
   padding-left: 5px;
 }
 
-#login-error-msg {
-  width: 23%;
-  text-align: center;
-  margin: 0;
-  padding: 5px;
-  font-size: 12px;
-  font-weight: bold;
-  color: #8a0000;
-  border: 1px solid #8a0000;
-  background-color: #e58f8f;
-  opacity: 0;
-}
-
 .hide {
   display: none;
+}
+
+.sticky-footer {
+  min-height: 100vh;
+
+}
+
+footer {
+  position: relative;
+  margin-top: -50px;
+  height: 50px;
+  width: 100%;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  flex-direction: row;
+  background-image: url("../images/brewery-header.jpg");
+  background-size: cover;
+  border: solid 2px black;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+}
+
+@media only screen and (min-width: 730px) {
+
+  header {
+    height: 21vh;
+  }
+
+  .brew-container{
+  justify-content: space-evenly;
+  }
+
+  .brew {
+    width: 420px;
+  }
+
 }

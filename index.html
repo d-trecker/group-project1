@@ -7,79 +7,59 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="./Assets/css/style.css" />
   <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://emoji-css.afeld.me/emoji.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet" />
-  <title>I-T-C</title>
+  <title>the pursuit of hoppiness</title>
 </head>
 
 <body>
-      <header class="header" id="page-header">
-        <!--Move to body-->
-        <h1>In-Tents Camping</h1>
-        <div class="container"><a href="./userlogin.html">
-            User Login
-          </a>
-          <div class="row">
-            <div class="weather"></div>
-          </div>
-        </div>
-        <!--End Move to body-->
-      </header>
-      <aside class="flex-column justify-space-between">
-        <main class="container-fluid">
-          <div class="row">
-            <div class="col-12 col-md-3 p-2 search-column">
-              <form class="border p-2" id="city-search-form">
-                <h4>Search for a City</h2>
-                  <input id="city" type="text" autofocus="true" class="form-input" />
-                  <button class="btn btn-primary" type="submit" id = "search-btn">Search</button>
-              </form>
-              <div class="past-search border" id="past-search-buttons"></div>
-            </div>
-            <div class="col-12 col-md-9">
-              <div class="row border selected-city" id="current-campsite">
-                <div class="col-12">
-                  <h2 id="searched-city"></h2>
-                  <div id="current-campsite-container" class="list-group"></div>
-                </div>
-              </div>
-              <div class="row border" id="previous-searches">
-                <div class="d-flex" id="current-campsite"></div>
-              </div>
-            </div>
-          </div>
-          <div id = "display-weather">
-            <h2 class = "city"></h2>
-            <p class = "temp"></p>
-            <img src="" class = "icon" />
-          </div>
-      </aside>
+  <div class="sticky-footer">
+    <header class="header" id="page-header">
 
-      <div id="login-error-msg-holder">
-        <p id="login-error-msg">Invalid username <span id="error-msg-second-line">and/or password</span></p>
+      <h1>The Pursuit of Hoppiness <span>Local Brewery Finder</span></h1>
+      <div class="container">
+        <div class="weather-container">
+          <div class="weather"></div>
+        </div>
       </div>
 
-      <div class="flex-container" id = "brew-container">
-        <!-- <div class="flex-item"><img src="http://placehold.it/100x100">
-          <span>PARK AVAILABILITY & TIME SLOTS</span>
+    </header>
+
+    <aside class="aside">
+      <main class="container-main">
+        <div class="search-container">
+          <div class="search-column">
+            <form class="form" id="city-search-form">
+                <input id="city" type="text" autofocus="true" class="form-input" placeholder="Search for a City"/>
+                <button class="btn btn-primary" type="submit" id="search-btn">
+                  <i class="em em-beers" aria-role="presentation" aria-label="CLINKING BEER MUGS"></i>
+                </button>
+            </form>
+            <div class="past-search border" id="past-search-buttons"></div>
+          </div>
+
+          <div class="hide weather-display" id="display-weather">
+            <h2 class="city"></h2>
+            <p class="temp"></p>
+            <img src="" class="icon" />
+          </div>
+
         </div>
-        <div class="flex-item"><img src="http://placehold.it/100x100">
-          <span>RESERVATIONS</span>
-        </div>
-        <div class="flex-item"><img src="http://placehold.it/100x100">
-          <span>REVIEWS</span>
-        </div>
-        <div class="flex-item"><img src="http://placehold.it/100x100">
-          <span>LEAVE REVIEWS</span>
-        </div>
-        <div class="flex-item"><img src="http://placehold.it/100x100">
-          <span>SEE RATINGS</span>
-        </div>
-        <div class="flex-item"><img src="http://placehold.it/100x100">
-          <span>CAMPSITE RESERVATION PRICES</span>
-        </div> -->
-      </div>
+
+    </aside>
+
+    <div class="brew-container" id="brew-container">
+
+    </div>
+  </div>
+  <footer>
+
+  </footer>
 
 </body>
+
 </html>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
