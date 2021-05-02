@@ -50,7 +50,7 @@ function weatherDisplay(data) {
   console.log(name, temp, icon);
   //Gives Element text.
   document.querySelector(".city").innerText = name;
-  document.querySelector(".temp").innerText = temp;
+  document.querySelector(".temp").innerText = temp + "°";
   document.querySelector(".icon").src =
     "http://openweathermap.org/img/wn/" + icon + ".png";
   // weatherDisplay.removeClass("hide");
@@ -113,11 +113,13 @@ var pastSearchHandler = function (event) {
 
 $(searchButton).on("click", function (event) {
   event.preventDefault();
-  $(".brew").empty();
+  $(".brew").remove();
   var searchResult = $("#city").val();
   saveSearch(searchResult);
   console.log(searchResult);
-  // brewContainer.reset();
+  $("#display-weather").removeClass("hide");
+  // clears the search bar
+  document.getElementById("city").value = "";
 });
 
 // event.preventDefault();
