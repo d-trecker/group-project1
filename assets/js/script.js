@@ -1,158 +1,3 @@
-<<<<<<< HEAD
-const loginForm = document.getElementById("login-form");
-const loginButton = document.getElementById("login-form-submit");
-const loginErrorMsg = document.getElementById("login-error-msg");
-const registerButton = document.getElementById("secondButton");
-const registerErrorMsg = document.getElementById("register-error-message")
-var emailArray=[];
-var passwordArray=[];
-
-var loginBox = document.getElementById("login");
-var regBox = document.getElementById("register");
-var forgetBox = document.getElementById("forgot");
-
-var loginTab = document.getElementById("leftTab");
-var regTab = document.getElementById("rightTab");
-
-function regTabFun(){
-    event.preventDefault();
-
-    regBox.style.visibility="visible";
-    loginBox.style.visibility="hidden";
-    forgetBox.style.visibility="hidden";
-
-    regTab.style.backgroundColor="rgb(12, 132, 189)";
-    loginTab.style.backgroundColor="rgba(11, 177, 224, 0.82)";
-}
-function loginTabFun(){
-    event.preventDefault();
-
-    regBox.style.visibility="hidden";
-    loginBox.style.visibility="visible";
-    forgetBox.style.visibility="hidden";
-
-    loginTab.style.backgroundColor="rgb(12, 132, 189)";
-    regTab.style.backgroundColor="rgba(11, 177, 224, 0.82)";
-}
-function forTabFun(){
-    event.preventDefault();
-
-    regBox.style.visibility="hidden";
-    loginBox.style.visibility="hidden";
-    forgetBox.style.visibility="visible";
-
-    regTab.style.backgroundColor="rgba(11, 177, 224, 0.82)";
-    loginTab.style.backgroundColor="rgba(11, 177, 224, 0.82)";
-
-}
-
-
-function register(){
-    event.preventDefault();
-
-    var email = document.getElementById("re").value;
-    var password = document.getElementById("rp").value;
-    var passwordRetype = document.getElementById("rrp").value;
-
-    if (email == ""){
-        alert("Email required.");
-        return ;
-    }
-    else if (password == ""){
-        alert("Password required.");
-        return ;
-    }
-    else if (passwordRetype == ""){
-        alert("Password required.");
-        return ;
-    }
-    else if ( password != passwordRetype ){
-        alert("Password don't match retype your Password.");
-        return;
-    }
-    else if(emailArray.indexOf(email) == -1){
-        emailArray.push(email);
-        passwordArray.push(password);
-
-        alert(email + "  Thanks for registration. \nTry to login Now");
-
-        document.getElementById("register-email-form").value ="";
-        document.getElementById("register-password-form").value="";
-        document.getElementById("register-confirm-password-form").value="";
-    }
-    else{
-        alert(email + " is already register.");
-        return ;
-    }
-}
-function login(){
-    event.preventDefault();
-
-    var email = document.getElementById("username-field").value;
-    var password = document.getElementById("password-field").value;
-
-    var i = emailArray.indexOf(email);
-
-    if(emailArray.indexOf(email) == -1){
-        if (email == ""){
-            alert("Email required.");
-            return ;
-        }
-        alert("Email does not exist.");
-        return ;
-    }
-    else if(passwordArray[i] != password){
-        if (password == ""){
-            alert("Password required.");
-            return ;
-        }
-        alert("Password does not match.");
-        return ;
-    }
-    else {
-        alert(email + " yor are login Now \n welcome to our website.");
-
-        document.getElementById("username-field").value ="";
-        document.getElementById("password-field").value="";
-        return ;
-    }
-
-}
-function forgot(){
-    event.preventDefault();
-
-    var email = document.getElementById("fe").value;
-
-    if(emailArray.indexOf(email) == -1){
-        if (email == ""){
-            alert("Email required.");
-            return ;
-        }
-        alert("Email does not exist.");
-        return ;
-    }
-
-    alert("email is send to your email check it in 24hr. \n Thanks");
-    document.getElementById("fe").value ="";
-}
-
-loginButton.addEventListener("click", (e) => {
-    e.preventDefault();
-    const username = loginForm.username.value;
-    const password = loginForm.password.value;
-
-    if (username === "user" && password === "web_dev") {
-        alert("You have successfully logged in.");
-        location.reload();
-    } else {
-        loginErrorMsg.style.opacity = 1;
-    }
-})
-
-
-
-
-=======
 // main variables
 var cityFormEl = document.querySelector("#city-search-form");
 var weatherContainerEl = document.querySelector("#current-weather-container");
@@ -163,6 +8,24 @@ var searchButton = document.querySelector("#search-btn");
 var displayWeather = document.getElementById("#display-weather");
 brewContainer = $("#brew-container");
 const apiKey = "844421298d794574c100e3409cee0499";
+const searchErrorMsg = document.getElementById ("login-error-msg");
+const info = document.getElementsByClassName (".flex-container");
+
+
+// searchButton.addEventListener("click", (e) => {
+//   e.preventDefault();
+//   const city = inputCity;
+//   console.log(city);
+
+//   if (city === "") {
+//     searchErrorMsg.style.opacity = 1;
+//     info.style.value ="hidden"
+
+//   }
+
+
+// })
+
 // form submit handler
 
 var formSumbitHandler = function (event) {
@@ -183,6 +46,7 @@ var formSumbitHandler = function (event) {
 var saveSearch = function (city) {
   // localStorage.setItem("cities", JSON.stringify(cities));
 
+ 
   fetch("https://api.openbrewerydb.org/breweries?by_city=" + city)
     .then((response) => response.json())
     .then((data) => displayBrews(data));
@@ -195,7 +59,10 @@ var saveSearch = function (city) {
   )
     .then((response) => response.json())
     .then((data) => weatherDisplay(data));
+  
 };
+
+
 
 function weatherDisplay(data) {
   console.log(data);
@@ -268,6 +135,13 @@ var pastSearchHandler = function (event) {
 
 $(searchButton).on("click", function (event) {
   event.preventDefault();
+  console.log(searchResult);
+    if (searchResult === "") {
+      searchErrorMsg.style.opacity = 1;
+      brewContainer.addClass (".hide");
+      brewContainer.style.opacity = 0;
+      parentDiv.style.opacity = 0;
+    }
   var searchResult = $("#city").val();
   saveSearch(searchResult);
   console.log(searchResult);
@@ -295,4 +169,3 @@ $(searchButton).on("click", function (event) {
 // containers
 
 // create date element
->>>>>>> 41ec32686ab7be0c17c02dca1850c65f01961ec9
