@@ -51,6 +51,7 @@ html, body {
 }
 
 header {
+  padding-top: 20px;
   align-items: center;
   display: table;
   justify-content: space-between;
@@ -59,9 +60,13 @@ header {
   background-image: url("../images/brewery-header.jpg");
   background-size: cover;
   border: solid 2px black;
-  height: 20vh;
+  height: 15vh;
   width: 100vw;
   box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+}
+
+span {
+  font-size: .8em;
 }
 
 h1 {
@@ -129,6 +134,8 @@ h2 {
 }
 
 .b-name {
+  align-items: center;
+  justify-content: center;
   color: rgb(0, 0, 0);
   font-weight: 500;
 }
@@ -189,6 +196,7 @@ ul {
 }
 .brew-container{
   margin-top: 5px;
+  margin-bottom: 75px;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -240,7 +248,7 @@ footer {
 @media only screen and (min-width: 730px) {
 
   header {
-    height: 36vh;
+    height: 21vh;
   }
 
   .brew-container{

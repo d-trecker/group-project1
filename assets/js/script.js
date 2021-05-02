@@ -78,7 +78,7 @@ function displayBrews(data) {
     var brewStreetEl = $('<p class= "b-street"></p>').text(street);
     var brewCityEl = $('<p class="b-city"></p>').text(city);
     var brewPhoneEl = $('<p class="b-phone"></p>').text(phone);
-    var brewWebsiteEl = $('<a href"'+ website +'" class="button b-website" target="_blank"></a>').text(website);
+    var brewWebsiteEl = $('<a href="'+website+'" class="button b-website" target="_blank" id="site"></a>').text(website);
 
     parentDiv.append(brewNameEl);
     parentDiv.append(brewStreetEl);
@@ -124,7 +124,12 @@ $(searchButton).on("click", function (event) {
   // brewContainer.reset();
 });
 
-$('p.button').click(function(){$(this).children('a').click()});
+// $("#site").on("click", function (event) {
+//   console.log("website has been clicked!");
+
+// }
+
+// $('p.button').click(function(){$(this).children('a').click()});
 
 // event.preventDefault();
 // var searchResult = $("#city").val();
