@@ -120,6 +120,13 @@ $(searchButton).on("click", function (event) {
   $("#display-weather").removeClass("hide");
   // clears the search bar
   document.getElementById("city").value = "";
+  window.localStorage.setItem("cityName", JSON.stringify(searchResult));
+  var cityName = JSON.parse(window.localStorage.getItem("cityName"));
+  console.log(cityName);
+  var cityContainer = $("#past-search-buttons");
+  var cityEl = $('<button class="btn" id = "histBtn" ></button>').text(cityName);
+  cityContainer.append(cityEl);
+  // brewContainer.reset();
 });
 
 // event.preventDefault();
