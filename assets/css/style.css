@@ -25,7 +25,7 @@
 .btn:hover {
   outline: none;
   box-shadow: 0 0 10px rgba(0, 10, 0, 1);
-  background-color: rgba(63, 163, 72, 1);
+  background-color: rgb(47, 138, 55);
 }
 
 input[type=text] {
