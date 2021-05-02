@@ -10,6 +10,9 @@ brewContainer = $("#brew-container");
 const apiKey = "844421298d794574c100e3409cee0499";
 // form submit handler
 
+var sfx = new Audio();
+sfx.src = "assets/fx/bottle_cap.mp3";
+
 var formSumbitHandler = function (event) {
   event.preventDefault();
   var city = cityInputEl.value.trim();
@@ -78,7 +81,7 @@ function displayBrews(data) {
     var brewStreetEl = $('<p class= "b-street"></p>').text(street);
     var brewCityEl = $('<p class="b-city"></p>').text(city);
     var brewPhoneEl = $('<p class="b-phone"></p>').text(phone);
-    var brewWebsiteEl = $('<a href="'+website+'" class="button b-website" target="_blank" id="site"></a>').text(website);
+    var brewWebsiteEl = $('<a href="' + website + '" class="button b-website" target="_blank" id="site"></a>').text(website);
 
     parentDiv.append(brewNameEl);
     parentDiv.append(brewStreetEl);
@@ -112,6 +115,7 @@ var pastSearchHandler = function (event) {
 
 $(searchButton).on("click", function (event) {
   event.preventDefault();
+
   var searchResult = $("#city").val();
   if (searchResult != "") {
     $(".brew").remove();
