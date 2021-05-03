@@ -83,6 +83,11 @@ h2 {
   color: black;
 }
 
+.h2 {
+  font-size: 1.2em;
+  font-weight: bolder;
+}
+
 .container {
   display: flex;
   flex-wrap: wrap;

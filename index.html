@@ -32,10 +32,11 @@
         <div class="search-container">
           <div class="search-column">
             <form class="form" id="city-search-form">
-                <input id="city" type="text" autofocus="true" class="form-input" placeholder="Search for a City"/>
-                <button class="btn btn-primary" type="submit" id="search-btn" onmousedown="sfx.play()">
-                  <i class="em em-beers" aria-role="presentation" aria-label="CLINKING BEER MUGS"></i>
-                </button>
+              <input id="city" type="text" autofocus="true" class="form-input" placeholder="Search for a City"
+                onkeyup="validate(this)" required />
+              <button class="btn btn-primary" type="submit" id="search-btn" onmousedown="sfx.play()">
+                <i class="em em-beers" aria-role="presentation" aria-label="CLINKING BEER MUGS"></i>
+              </button>
             </form>
             <div class="past-search border" id="past-search-buttons"></div>
           </div>
