@@ -11,15 +11,7 @@ const apiKey = "844421298d794574c100e3409cee0499";
 
 //  Bottle Cap Sound FX
 var sfx = new Audio();
-sfx.src = "assets/fx/bottle_cap.mp3";
-
-// function validate (obj) {
-//   if (obj.value.length > 0) {
-//     document.getElementById("search-btn").disabled = false;
-//   } else {
-//     document.getElementById("search-btn").disabled = true;
-//     }
-//   }
+sfx.src = "assets/fx/cheers.mp3";
 
 var saveSearch = function (city) {
   // localStorage.setItem("cities", JSON.stringify(cities));
