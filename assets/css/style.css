@@ -229,6 +229,10 @@ span {
 
 }
 
+#login-error-msg {
+  opacity: 1;
+}
+
 footer {
   position: relative;
   margin-top: -50px;

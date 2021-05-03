@@ -32,12 +32,16 @@
         <div class="search-container">
           <div class="search-column">
             <form class="form" id="city-search-form">
-                <input id="city" type="text" autofocus="true" class="form-input" placeholder="Search for a City"/>
-                <button class="btn btn-primary" type="submit" id="search-btn">
+                <input id="city" type="text" autofocus="true" class="form-input" placeholder="Search for a City" onkeyup="validate(this)" required/>
+                <button disabled class="btn btn-primary" type="submit" id="search-btn" style="cursor: pointer;" onclick="showOrHideDiv()" onmousedown="sfx.play()" >
                   <i class="em em-beers" aria-role="presentation" aria-label="CLINKING BEER MUGS"></i>
                 </button>
             </form>
             <div class="past-search border" id="past-search-buttons"></div>
+          </div>
+
+          <div id="showOrHide">
+            <p id="login-error-msg"> Input a city </p>
           </div>
 
           <div class="hide weather-display" id="display-weather">
