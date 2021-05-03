@@ -231,6 +231,10 @@ span {
 
 #login-error-msg {
   opacity: 1;
+  text-align:center;
+  flex-wrap: wrap;
+  padding-right: 98px;
+  
 }
 
 footer {
