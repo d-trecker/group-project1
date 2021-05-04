@@ -29,6 +29,23 @@
   background-color: rgb(47, 138, 55);
 }
 
+.hist-btn {
+  margin: 5px;
+  transition-duration: 0.4s;
+  padding: 10px;
+  border-radius: 30%;
+  color: var(--second-color);
+  background-color: rgba(86, 92, 86, 0.5);
+  font-size: 20px;
+  outline: none;
+}
+
+.hist-btn:hover {
+  outline: none;
+  box-shadow: 0 0 10px rgba(0, 10, 0, 1);
+  background-color: rgb(43, 43, 43);
+}
+
 input[type=text] {
   box-shadow: 0 0 10px rgba(0, 0, 0, .5);
   outline: none;
@@ -101,12 +118,33 @@ h2 {
   border: black solid 2px;
 }
 
+.form {
+  padding: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
 .search-container {
   flex-direction: row;
   align-items: center;
   justify-content: center;
   flex-direction: row;
   padding: 10px;
+  flex-wrap: wrap;
+}
+
+.weather-div{
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-left: 16%;
+  padding-right: 16%;
   flex-wrap: wrap;
 }
 
@@ -125,6 +163,7 @@ h2 {
   justify-content: center;
   background-color: var(--third-color);
   border-radius: 5px;
+  /* position: absolute; */
 }
 
 .b-website {
@@ -136,7 +175,7 @@ h2 {
   cursor: pointer;
 }
 .temp {
-  font-size: 40px;
+  font-size: 30px;
 }
 
 .b-name {
@@ -146,7 +185,7 @@ h2 {
   font-weight: 500;
 }
 .city {
-  font-size: 250%;
+  font-size: 170%;
   text-decoration: underline;
 }
 
@@ -200,13 +239,20 @@ aside {
 ul {
   list-style: none;
 }
+
+.past-search{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
 .brew-container{
   margin-top: 5px;
   margin-bottom: 75px;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  align-items: center;
   align-items: center;
   flex-wrap: wrap;
   position: relative;
@@ -251,10 +297,39 @@ footer {
   box-shadow: 0 0 10px rgba(0, 0, 0, 1);
 }
 
+
+
 @media only screen and (min-width: 730px) {
 
   header {
     height: 21vh;
+  }
+
+  h1 {
+    display: table-row;
+    text-decoration: underline;
+    text-align: center;
+    font-size: 3.5vw;
+    color: var(--second-color);
+    text-shadow: 0 0 10px rgba(0, 0, 0, 1);
+    padding: 10px;
+  }
+
+  .city {
+    font-size: 250%;
+    text-decoration: underline;
+  }
+
+  .weather-div{
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-left:37%;
+    padding-right:37%;
+    flex-wrap: wrap;
   }
 
   .brew-container{
