@@ -11,36 +11,7 @@ const apiKey = "844421298d794574c100e3409cee0499";
 
 //  Bottle Cap Sound FX
 var sfx = new Audio();
-sfx.src = "assets/fx/bottle_cap.mp3";
-
-document.getElementById("search-btn").addEventListener("click", function() {
-  document.getElementById("showOrHide").hidden = true;
-}, false);
-
-function validate (obj) {
-  if (obj.value.length > 0) {
-    document.getElementById("search-btn").disabled = false;
-  } else {
-    document.getElementById("search-btn").disabled = true;
-    
-    }
-  }
-// form submit handler
-
-var formSumbitHandler = function (event) {
-  event.preventDefault();
-  var city = cityInputEl.value.trim();
-  if (city) {
-    getCityCampsite(city);
-    getCityWeather(city);
-    cities.unshift({ city });
-    cityInputEl.value = "";
-  } else {
-    alert("Please enter a City");
-  }
-  saveSearch();
-  pastSearch(city);
-};
+sfx.src = "assets/fx/cheers.mp3";
 
 var saveSearch = function (city) {
   // localStorage.setItem("cities", JSON.stringify(cities));
@@ -59,6 +30,18 @@ var saveSearch = function (city) {
   
 };
 
+document.getElementById("search-btn").addEventListener("click", function() {
+  document.getElementById("showOrHide").hidden = true;
+}, false);
+
+function validate (obj) {
+  if (obj.value.length > 0) {
+    document.getElementById("search-btn").disabled = false;
+  } else {
+    document.getElementById("search-btn").disabled = true;
+    
+    }
+  }
 
 
 function weatherDisplay(data) {
@@ -89,6 +72,17 @@ function displayBrews(data) {
     var street = data[i].street;
     var city = data[i].city;
     var phone = data[i].phone;
+    
+    function formatPhoneNumber(phone) {
+      var cleaned = ('' + phone).replace(/\D/g, '');
+      var match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/);
+      if (match) {
+        return '(' + match[1] + ') ' + match[2] + '-' + match[3];
+      }
+      return null;
+    }
+
+    var realPhone = formatPhoneNumber(phone);
     var website = data[i].website_url;
 
     console.log(brewName, street, city, phone, website);
@@ -97,7 +91,7 @@ function displayBrews(data) {
     var brewNameEl = $('<h3 class="b-name"></h3>').text(brewName);
     var brewStreetEl = $('<p class= "b-street"></p>').text(street);
     var brewCityEl = $('<p class="b-city"></p>').text(city);
-    var brewPhoneEl = $('<a href="tel:b-phone"></a>').text(phone);
+    var brewPhoneEl = $('<a href="tel:b-phone"></a>').text(realPhone);
     var brewWebsiteEl = $('<a href="' + website + '" class="button b-website" target="_blank" id="site"></a>').text(website);
 
     parentDiv.append(brewNameEl);
@@ -132,8 +126,10 @@ var pastSearchHandler = function (event) {
 
 $(searchButton).on("click", function (event) {
   event.preventDefault();
+
   var searchResult = $("#city").val();
   if (searchResult != "") {
+
     $(".brew").remove();
     saveSearch(searchResult);
     console.log(searchResult);
@@ -141,5 +137,16 @@ $(searchButton).on("click", function (event) {
     // clears the search bar
     document.getElementById("city").value = "";
   }
+  // else {
+  //   $("#display-weather").text("Are you drunk already? Enter a City").removeClass("hide")
+  //   $("#display-weather").addClass("h2")
+  // }else if {
+  //   $(".brew").remove();
+  //   saveSearch(searchResult);
+  //   console.log(searchResult);
+  //   $("#display-weather").removeClass("hide");
+  //   // clears the search bar
+  //   document.getElementById("city").value = "";
+  // }
   // brewContainer.reset();
 });

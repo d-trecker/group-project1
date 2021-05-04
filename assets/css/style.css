@@ -20,12 +20,30 @@
   color: var(--second-color);
   background-color: rgba(63, 163, 72, 0.5);
   font-size: 30px;
+  outline: none;
 }
 
 .btn:hover {
   outline: none;
   box-shadow: 0 0 10px rgba(0, 10, 0, 1);
   background-color: rgb(47, 138, 55);
+}
+
+.social-icons {
+  margin: 10px auto;
+  text-align: center;
+  margin-left: 350px;
+}
+
+.social-icons img {
+  width: 100px;
+}
+
+.social-icons :hover {
+  outline: blanchedalmond;
+  box-shadow: 0 0 10px rgba(225, 225, 225, 1);
+  background-color: whitesmoke;
+  
 }
 
 input[type=text] {
@@ -81,6 +99,11 @@ h1 {
 
 h2 {
   color: black;
+}
+
+.h2 {
+  font-size: 1.2em;
+  font-weight: bolder;
 }
 
 .container {
@@ -228,6 +251,7 @@ span {
   min-height: 100vh;
 
 }
+
 
 #login-error-msg {
   opacity: 1;

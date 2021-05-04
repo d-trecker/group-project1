@@ -11,7 +11,7 @@
   <link href="https://emoji-css.afeld.me/emoji.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet" />
-  <title>the pursuit of hoppiness</title>
+  <title>The Pursuit of Hoppiness</title>
 </head>
 
 <body>
@@ -31,11 +31,13 @@
       <main class="container-main">
         <div class="search-container">
           <div class="search-column">
+             
             <form class="form" id="city-search-form">
-                <input id="city" type="text" autofocus="true" class="form-input" placeholder="Search for a City" onkeyup="validate(this)" required/>
-                <button disabled class="btn btn-primary" type="submit" id="search-btn" style="cursor: pointer;" onclick="showOrHideDiv()" onmousedown="sfx.play()" >
-                  <i class="em em-beers" aria-role="presentation" aria-label="CLINKING BEER MUGS"></i>
-                </button>
+              <input id="city" type="text" autofocus="true" class="form-input" placeholder="Search for a City"
+                onkeyup="validate(this)" required />
+              <button disabled class="btn btn-primary" type="submit" id="search-btn" onmousedown="sfx.play()">
+                <i class="em em-beers" aria-role="presentation" aria-label="CLINKING BEER MUGS"></i>
+              </button>   
             </form>
             <div class="past-search border" id="past-search-buttons"></div>
           </div>
@@ -44,6 +46,9 @@
             <p id="login-error-msg"> Input a city </p>
           </div>
 
+          <div class = "social-icons">
+            <a href = "https://www.uber.com/us/en/ride/"><img src ="./assets/images/uver.jpg" ></a>
+          
           <div class="hide weather-display" id="display-weather">
             <h2 class="city"></h2>
             <p class="temp"></p>
