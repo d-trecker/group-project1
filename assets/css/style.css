@@ -30,9 +30,10 @@
 }
 
 .social-icons {
-  margin: 10px auto;
-  text-align: center;
-  margin-left: 350px;
+  text-align: left;
+  flex-wrap: wrap;
+  margin-left: 55px;
+  
 }
 
 .social-icons img {
