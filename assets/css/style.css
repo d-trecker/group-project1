@@ -20,6 +20,7 @@
   color: var(--second-color);
   background-color: rgba(63, 163, 72, 0.5);
   font-size: 30px;
+  outline: none;
 }
 
 .btn:hover {
