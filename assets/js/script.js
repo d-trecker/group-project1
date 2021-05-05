@@ -76,7 +76,7 @@ function displayBrews(data) {
     var brewNameEl = $('<h3 class="b-name"></h3>').text(brewName);
     var brewStreetEl = $('<p class= "b-street"></p>').text(street);
     var brewCityEl = $('<p class="b-city"></p>').text(city);
-    var brewPhoneEl = $('<a href="tel:b-phone"></a>').text(realPhone);
+    var brewPhoneEl = $('<a class="b-phone" href="tel:b-phone"></a>').text(realPhone);
     var brewWebsiteEl = $('<a href="' + website + '" class="button b-website" target="_blank" id="site"></a>').text(website);
 
     parentDiv.append(brewNameEl);

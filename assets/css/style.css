@@ -6,27 +6,36 @@
 
 
 :root {
-  --primary-color: rgb(70, 75, 82);
-  --second-color: #ffffff;
-  --third-color: #ff901f;
-  --fourth-color: #4d1605;
+  --primary-color: #231F20;
+  --second-color: #F8DFBD;
+  --third-color:  #984705;
+  --fourth-color: whitesmoke;
+}
+
+.buttons {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 
 .btn {
   transition-duration: 0.4s;
+  margin-right: 20px;
   padding: 10px;
   border-radius: 50%;
   color: var(--second-color);
-  background-color: rgba(63, 163, 72, 0.5);
-  font-size: 30px;
+  background-color: var(--third-color);
+  font-size: 20px;
   outline: none;
 }
 
 .btn:hover {
   outline: none;
-  box-shadow: 0 0 10px rgba(0, 10, 0, 1);
-  background-color: rgb(47, 138, 55);
+  box-shadow: 0 0 8px var(--second-color);
+  background-color: var(--primary-color);
 }
 
 .hist-btn {
@@ -35,21 +44,22 @@
   padding: 10px;
   border-radius: 30%;
   color: var(--second-color);
-  background-color: rgba(86, 92, 86, 0.5);
+  background-color: var(--third-color);
   font-size: 20px;
   outline: none;
 }
 
 .hist-btn:hover {
   outline: none;
-  box-shadow: 0 0 10px rgba(0, 10, 0, 1);
-  background-color: rgb(43, 43, 43);
+  box-shadow: 0 0 10px var(--second-color);
+  color: var(--third-color);
+  background-color: var(--second-color);
 }
 
 input[type=text] {
   box-shadow: 0 0 10px rgba(0, 0, 0, .5);
   outline: none;
-  margin-right: 30px;
+  margin-bottom: 15px;
   width: 200px;
   height: 35px;
   border: none;
@@ -69,23 +79,36 @@ html, body {
 }
 
 header {
-  padding-top: 20px;
+  /* padding-top: 250px; */
   align-items: center;
-  display: table;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  flex-direction: row;
-  background-image: url("../images/brewery-header.jpg");
-  background-size: cover;
+  display: flex;
+  justify-content: center;
+  /* flex-wrap: wrap; */
+  /* flex-direction: row; */
+  /* background-color: var(--third-color); */
   border: solid 2px black;
-  height: 15vh;
-  width: 100vw;
+  height: 14vh;
+  width: 100%;
   box-shadow: 0 0 10px rgba(0, 0, 0, 1);
 }
 
-span {
-  font-size: .8em;
+.head-img {
+  background-size: 100% auto !important;
+  width: 100%;
+  height: auto;
+  position: absolute;
 }
+
+.social-icons {
+  margin-left: 20px;
+  width: 55px;
+  border-radius: 10px;
+}
+
+.social-icons:hover {
+  box-shadow: 0 0 10px var(--second-color);
+}
+
 
 h1 {
   display: table-row;
@@ -149,6 +172,7 @@ h2 {
 }
 
 .brew {
+  background-image: url("../images/cardBg.jpg");
   box-shadow: 0 0 10px rgba(0, 0, 0, 1);
   display: flex;
   flex-direction: column;
@@ -159,42 +183,74 @@ h2 {
   width: 100%;
   margin: 10px;
   padding: 2px;
-  color: var(--fourth-color);
   justify-content: center;
   background-color: var(--third-color);
   border-radius: 5px;
   /* position: absolute; */
 }
 
+.b-name {
+  align-items: center;
+  justify-content: center;
+  color: var(--fourth-color);
+  font-weight: 500;
+  text-shadow: 10px 1px 5px rgba(0, 0, 0, 1);
+}
+
+.b-street {
+  color: var(--fourth-color);
+  text-shadow: 10px 1px 5px rgba(0, 0, 0, 1);
+}
+
+.b-city {
+  font-weight: bold;
+  color: var(--fourth-color);
+  text-shadow: 10px 1px 5px rgba(0, 0, 0, 1);
+}
+
+.b-phone {
+  color: var(--fourth-color);
+  text-shadow: 10px 1px 5px rgba(0, 0, 0, 1);
+}
+
+.b-phone:hover {
+  cursor: pointer;
+  transform: scale(1.3);
+  transition: all .2s ease-in-out;
+}
+
 .b-website {
-  color: blue;
+  color: var(--fourth-color);
   font-size: 90%;
+  text-shadow: 10px 1px 5px rgba(0, 0, 0, 1);
 }
 
 .b-website:hover {
   cursor: pointer;
+  transform: scale(1.3);
+  transition: all .2s ease-in-out;
 }
 .temp {
+  color: var(--second-color);
   font-size: 30px;
+  text-shadow: 0 0 20px rgba(0, 0, 0, 1);
 }
 
-.b-name {
-  align-items: center;
-  justify-content: center;
-  color: rgb(0, 0, 0);
-  font-weight: 500;
-}
 .city {
+  color: var(--second-color);
   font-size: 170%;
   text-decoration: underline;
+  text-shadow: 0 0 20px rgba(0, 0, 0, 1);
 }
 
 .icon {
   width: auto;
   height: 20vh;
+  /* box-shadow: 0 0 20px rgba(0, 0, 0, 1); */
 }
 
 .weather-display {
+  /* background-image: url("../images/cardBg.jpg"); */
   height: 150px;
   width: 100%;
   box-shadow: 0 0 10px rgba(0, 0, 0, 1);
@@ -284,17 +340,18 @@ span {
 footer {
   position: relative;
   margin-top: -50px;
-  height: 50px;
+  height: 60px;
   width: 100%;
   align-items: center;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   flex-wrap: wrap;
   flex-direction: row;
-  background-image: url("../images/brewery-header.jpg");
-  background-size: cover;
-  border: solid 2px black;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+  /* background-color: var(--third-color); */
+  background-image: url("../images/project_footer-3.png");
+  background-size: 100%;
+  /* border: solid 2px black; */
+  /* box-shadow: 0 0 10px rgba(0, 0, 0, 1); */
 }
 
 
@@ -302,8 +359,26 @@ footer {
 @media only screen and (min-width: 730px) {
 
   header {
-    height: 21vh;
+    /* padding-top: 250px; */
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    /* flex-wrap: wrap; */
+    /* flex-direction: row; */
+    /* background-color: var(--third-color); */
+    border: solid 2px black;
+    height: 1vh;
+    width: 100%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 1);
   }
+
+  .head-img {
+    background-size: 100% auto !important;
+    width: 100%;
+    height: auto;
+    position: absolute;
+  }
+  
 
   h1 {
     display: table-row;
@@ -338,6 +413,23 @@ footer {
 
   .brew {
     width: 420px;
+  }
+
+  footer {
+    position: relative;
+    margin-top: -50px;
+    height: 60px;
+    width: 100%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    /* background-color: var(--third-color); */
+    background-image: url("../images/project_footer-3.png");
+    background-size: 100%;
+    /* border: solid 2px black; */
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 1); */
   }
 
 }
