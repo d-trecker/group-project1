@@ -4,7 +4,6 @@
   padding: 0;
 }
 
-
 :root {
   --primary-color: #231F20;
   --second-color: #F8DFBD;
@@ -79,17 +78,17 @@ html, body {
 }
 
 header {
-  /* padding-top: 250px; */
+  padding-bottom: 40px;
   align-items: center;
   display: flex;
   justify-content: center;
   /* flex-wrap: wrap; */
   /* flex-direction: row; */
   /* background-color: var(--third-color); */
-  border: solid 2px black;
+  /* border: solid 2px black; */
   height: 14vh;
   width: 100%;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+  /* box-shadow: 0 0 10px rgba(0, 0, 0, 1); */
 }
 
 .head-img {
@@ -107,17 +106,6 @@ header {
 
 .social-icons:hover {
   box-shadow: 0 0 10px var(--second-color);
-}
-
-
-h1 {
-  display: table-row;
-  text-decoration: underline;
-  text-align: center;
-  font-size: 7vw;
-  color: var(--second-color);
-  text-shadow: 0 0 10px rgba(0, 0, 0, 1);
-  padding: 10px;
 }
 
 h2 {
@@ -265,23 +253,6 @@ h2 {
   background-color: var(--third-color);
 }
 
-/*----Treid making font asset file. Linked fonts in HTML----*/
-/* @font-face {
-    font-family: "header-font";
-    font-style: normal;
-    src: url(../fonts/SpecialElite-Regular.ttf);
-  }
-  @font-face {
-    font-family: "general-font";
-    src: url(../fonts/AlegreyaSC-Regular.ttf);
-  }
-  
-  @font-face {
-    font-family: "highlight-font";
-    font-style: normal;
-    src: url(../fonts/Rancho-Regular.ttf);
-  } */
-
 aside {
   margin: 10px;
   display: flex;
@@ -333,14 +304,13 @@ span {
 }
 
 .sticky-footer {
-  min-height: 100vh;
-
+  min-height: 77vh;
 }
 
 footer {
   position: relative;
   margin-top: -50px;
-  height: 60px;
+  height: 69px;
   width: 100%;
   align-items: center;
   display: flex;
@@ -354,20 +324,13 @@ footer {
   /* box-shadow: 0 0 10px rgba(0, 0, 0, 1); */
 }
 
-
-
 @media only screen and (min-width: 730px) {
 
   header {
-    /* padding-top: 250px; */
     align-items: center;
-    display: flex;
-    justify-content: center;
-    /* flex-wrap: wrap; */
-    /* flex-direction: row; */
-    /* background-color: var(--third-color); */
-    border: solid 2px black;
-    height: 1vh;
+    vertical-align: top;
+    display: inline;
+    height: 20%;
     width: 100%;
     box-shadow: 0 0 10px rgba(0, 0, 0, 1);
   }
@@ -376,20 +339,14 @@ footer {
     background-size: 100% auto !important;
     width: 100%;
     height: auto;
-    position: absolute;
+
+  }
+
+  aside {
+    padding-top: 90px;
+    margin-top: 365px;
   }
   
-
-  h1 {
-    display: table-row;
-    text-decoration: underline;
-    text-align: center;
-    font-size: 3.5vw;
-    color: var(--second-color);
-    text-shadow: 0 0 10px rgba(0, 0, 0, 1);
-    padding: 10px;
-  }
-
   .city {
     font-size: 250%;
     text-decoration: underline;
@@ -415,21 +372,21 @@ footer {
     width: 420px;
   }
 
+  .sticky-footer {
+    min-height: 100%;
+  }
+
   footer {
     position: relative;
     margin-top: -50px;
-    height: 60px;
+    height: 33%;
     width: 100%;
+    background-repeat: no-repeat;
     align-items: center;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     flex-direction: row;
-    /* background-color: var(--third-color); */
-    background-image: url("../images/project_footer-3.png");
-    background-size: 100%;
-    /* border: solid 2px black; */
-    /* box-shadow: 0 0 10px rgba(0, 0, 0, 1); */
   }
 
 }
