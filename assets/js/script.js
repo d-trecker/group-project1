@@ -76,7 +76,7 @@ function displayBrews(data) {
     var brewNameEl = $('<h3 class="b-name"></h3>').text(brewName);
     var brewStreetEl = $('<p class= "b-street"></p>').text(street);
     var brewCityEl = $('<p class="b-city"></p>').text(city);
-    var brewPhoneEl = $('<a href="tel:b-phone"></a>').text(realPhone);
+    var brewPhoneEl = $('<a class="b-phone" href="tel:b-phone"></a>').text(realPhone);
     var brewWebsiteEl = $('<a href="' + website + '" class="button b-website" target="_blank" id="site"></a>').text(website);
 
     parentDiv.append(brewNameEl);
@@ -121,11 +121,42 @@ $(searchButton).on("click", function (event) {
     $("#display-weather").removeClass("hide");
     // clears the search bar
     document.getElementById("city").value = "";
+
+    window.localStorage.setItem("cityName", JSON.stringify(searchResult));
+    var cityName = JSON.parse(window.localStorage.getItem("cityName"));
+    // console.log(cityName);
+
+    // Dynamically adds a history button of the city just searched
+    var container = $('#past-search-buttons')
+    var cityEl = $('<button class="hist-btn" id="' + cityName + '"></button>').text(cityName)
+
+    // makes the history button clickable and search for the city again
+    cityEl.click(function (event) {
+      console.log("you clicked on...")
+      // console.log(event.target)
+      event.preventDefault();
+      $(".brew").remove();
+      var searchResult = $("#city").val().trim()
+      saveSearch(cityName)
+    })
+    container.append(cityEl)
+  }
+  else {
+    Swal.fire({
+      title: "Are you drunk already? Enter a City",
+      showClass: {
+        popup: 'animate__animated animate__fadeInDown'
+      },
+      hideClass: {
+        popup: 'animate__animated animate__fadeOutUp'
+      }
+    })
   }
   // else {
   //   $("#display-weather").text("Are you drunk already? Enter a City").removeClass("hide")
   //   $("#display-weather").addClass("h2")
-  // }else if {
+  // }
+  // else if {
   //   $(".brew").remove();
   //   saveSearch(searchResult);
   //   console.log(searchResult);
@@ -135,3 +166,4 @@ $(searchButton).on("click", function (event) {
   // }
   // brewContainer.reset();
 });
+
