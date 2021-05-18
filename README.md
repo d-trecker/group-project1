@@ -1,4 +1,4 @@
-# group-project1
+# Pursuit of Hoppiness
 
 Discription:
 Created a local brewery locator application that allows the user to search for any city and retrieve the forcasted temerature, for the location as well as a list of all Breweries in the area.
